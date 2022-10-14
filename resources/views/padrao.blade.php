@@ -40,10 +40,10 @@
             Carros
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="{{'cadastrar-carro'}}">Cadastrar</a></li>
             <li><a class="dropdown-item" href="#">Buscar</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Editar/Deletar</a></li>
+            <li><a class="dropdown-item" href="{{'/editar-carro'}}">Gerenciar</a></li>
           </ul>
         </li>
 
