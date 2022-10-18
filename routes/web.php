@@ -23,14 +23,16 @@ Route::get('/', function () {
 
 
 Route::get('/',[HomeController::class,'MostrarHome'])->name('home');
-Route::get('/editar-caminhao',[CaminhaoController::class,'Editar'])->name('editar-caminhao');
+
+/*Caminhão */
+Route::get('/editar-caminhao',[CaminhaoController::class,'MostrarEditarCaminhao'])->name('editar-caminhao');
 Route::get('/cadastrar-caminhao',[CaminhaoController::class,'FormularioCadastro'])->name('cadastrar-caminhao');
-route::post('/cadastrar-caminhao', [CaminhaoController::class, 'SalvarBanco'])->name('salvar-banco');
+Route::post('/cadastrar-caminhao', [CaminhaoController::class, 'SalvarBanco'])->name('salvar-banco');
 
 
 /* CARROS */
-Route::get('/editar-carro',[CarroController::class,'EditarCarro'])->name('editar-carro');
+Route::get('/editar-carro',[CarroController::class,'MostrarEditarCarro'])->name('editar-carro');
 Route::get('/cadastrar-carro',[CarroController::class,'FormularioCadastroCarro'])->name('cadastrar-carro');
-route::post('/cadastrar-carro', [CarroController::class, 'SalvarBancoCarro'])->name('salvar-banco-carro');
+Route::post('/cadastrar-carro', [CarroController::class, 'SalvarBancoCarro'])->name('salvar-banco-carro');
 
 

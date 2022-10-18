@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Caminhao;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -13,9 +14,14 @@ class CaminhaoController extends Controller
         return view('cadastrarCaminhao');
     }
 
-    public function Editar()
+    public function MostrarEditarCaminhao()
     {
-        return view('editarCaminhao');
+        $dadosCaminhao = Caminhao::all();
+
+        //dd($dadosCaminhao);
+        return view('editarCaminhao', [
+            'registrosCaminhao' => $dadosCaminhao
+        ]);
     }
 
     public function SalvarBanco(Request $request)
