@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Caminhao;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class CaminhaoController extends Controller
 {
-    public function FormularioCadastro()
+    public function CadastroCaminhao()
     {
         return view('cadastrarCaminhao');
     }
 
-    public function MostrarEditarCaminhao()
+    public function EditarCaminhao()
     {
         $dadosCaminhao = Caminhao::all();
 
@@ -24,7 +23,7 @@ class CaminhaoController extends Controller
         ]);
     }
 
-    public function SalvarBanco(Request $request)
+    public function SalvarBancoCaminhao(Request $request)
     {
         $dadosCaminhao = $request->validate([
             'modelo' => 'string|required',
@@ -36,5 +35,22 @@ class CaminhaoController extends Controller
 
         Caminhao::create($dadosCaminhao);
         return Redirect::route('home');
+    }
+
+    public function ApagarBancoCaminhao(Caminhao $registrosCaminhoes)
+    {
+
+        $registrosCaminhoes->delete();
+        //Caminhao::findOrFail($id)->delete();
+        //$caminhao->delete();
+
+        return Redirect::route('editar-caminhao');
+    }
+
+    public function AlterarCaminhao(Caminhao $registrosCaminhoes)
+    {
+        
+
+        return view('alterarCaminhao', ['registrosCaminhoes' => $registrosCaminhoes]);
     }
 }

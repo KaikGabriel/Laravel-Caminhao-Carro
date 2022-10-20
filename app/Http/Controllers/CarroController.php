@@ -8,16 +8,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class CarroController extends Controller
 {
-    public function FormularioCadastroCarro()
+    public function CadastroCarro()
     {
         return view('cadastrarCarro');
     }
 
-    public function MostrarEditarCarro()
+    public function EditarCarro()
     {
         $dadosCarro = Carro::all();
 
-        //dd($dadosCarro);
+        
         return view('editarCarro', [
             'registrosCarro' => $dadosCarro
         ]);
@@ -36,4 +36,16 @@ class CarroController extends Controller
         Carro::create($dadosCarro);
         return Redirect::route('home');
     }
+
+    public function ApagarBancoCarro(Carro $registrosCarros)
+    {
+        
+        $registrosCarros->delete();
+        //Caminhao::findOrFail($id)->delete();
+        //$caminhao->delete();
+        
+        return Redirect::route('editar-carro');
+    }
+
+
 }
