@@ -1,7 +1,7 @@
 @extends('padrao')
 @section('content')
 <section>
-  <div class="container cadastroCarro">
+  <div class="container cadastroCaminhao">
     <form class="row g-3" method="post" action="{{route('salvar-banco-carro')}}">
       @csrf
       <div class="col-md-12">
